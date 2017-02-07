@@ -148,7 +148,7 @@ void setup() {
   pinMode(PIN_CLOCK,  OUTPUT);
   pinMode(PIN_DATA, INPUT);
     
-  //Serial.begin(9600);
+  Serial.begin(9600);
   clearAll();
   delay(500);
 }
@@ -159,31 +159,33 @@ void loop() {
   if (bytButton == 1)
   {
     sendRedRow(255);
-    //Serial.write("A");
+    Serial.write("A");
     delay(500);
   }
   else if (bytButton == 2)
   {
     sendBlueRow(255);
-    //Serial.write("B");
+    Serial.write("B");
     delay(500);
   }
   else if (bytButton > 0)
   {
    sendGreenRow(255);
-   //Serial.write("other\n");
-   //Serial.print(bytButton);
+   Serial.write("other\n");
+   Serial.print(bytButton);
     delay(500);
   }
   //
   else
   {
     sendWhiteRow(255);
-  //Serial.write("nothing\n");
+  Serial.write("nothing\n");
   delay(500);
   }
 }
-  
+
+
+//credit: https://github.com/joshmarinacci/nespad-arduino/blob/master/NESpad.cpp
 byte readNES()
 {
   byte ret = 0;
